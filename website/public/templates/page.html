@@ -1,7 +1,7 @@
 {@layout path="page-template" /}
 
 {<pageTitle}
-    {@queryOne type="dennison:page" as="{reques.tokens.pageName}"}
+    {@queryOne type="my:page" as="{reques.tokens.pageName}"}
     {?page}
         <title>{page.pageTitle}</title>
     {/page}
@@ -9,7 +9,7 @@
 {/pageTitle}
 
 {<content}
-    {@queryOne type="dennison:pageContent" field="title" fieldValue="{request.tokens.pageName}" as="page"}
+    {@queryOne type="my:pageContent" field="title" fieldValue="{request.tokens.pageName}" as="page"}
     <div class="row generic-page">
         <div class="col-md-3">
             {@block path="leftnav-page" /}
