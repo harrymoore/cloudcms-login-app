@@ -12,7 +12,7 @@ server.report(function(callback) {
 
     // provide some debug info
     console.log("");
-    console.log("Moen Training App Started Up");
+    console.log("Test App Started Up");
     console.log("");
     console.log("Node Version: " + process.version);
     console.log("Server Version: " + process.env.CLOUDCMS_APPSERVER_PACKAGE_VERSION);
@@ -59,53 +59,53 @@ server.start({
         "type": "file"
     },
     "auth": {
-        "enabled": true//,
-        // "providers": {
-        //     "cas": {
-        //         "enabled": true,
-        //         "successRedirect": "/index.html",
-        //         "failureRedirect": "/error.html",
-        //         "ssoBaseURL": "http://www.example.com/",
-        //         "serverBaseURL": "http://localhost:3000",
-        //         "callbackURL": "/auth/cas/callback",
-        //         "passTicket": true,
-        //         "passToken": true,
-        //         "autoRegister": true
-        //     },
-            // "google": {
-            //     "enabled": true,
-            //     "successRedirect": "/index.html",
-            //     "failureRedirect": "/error.html",
-            //     "clientID": "520954640638-n9q6c2ap1d61foa02ne0105es6rini3n.apps.googleusercontent.com",
-            //     "clientSecret": "Ts_XcQFB-aX6h1Ot51lnAHK6",
-            //     "callbackURL": "/auth/google/callback",
-            //     "passTicket": true,
-            //     "passToken": true,
-            //     "autoRegister": true
-            // },
-            // "github": {
-            //     "enabled": true,
-            //     "successRedirect": "/index.html",
-            //     "failureRedirect": "/error.html",
-            //     "callbackUrl": "/auth/github/callback",
-            //     "clientID": "7efe9b468c79c0366229",
-            //     "clientSecret": "616d9e926c9310bf9ff7fc0c9b7bfc0c31d6e232",
-            //     "passTicket": false,
-            //     "passToken": true,
-            //     "autoRegister": true
-            // },
-        //     "facebook": {
-        //         "enabled": true,
-        //         "successRedirect": "/index.html",
-        //         "failureRedirect": "/error.html",
-        //         "callbackUrl": "/auth/facebook/callback",
-        //         "appId": "19554140894",
-        //         "appSecret": "cd273345f845a7e6b5451eb5d81d3d7d",
-        //         "passTicket": false,
-        //         "passToken": true,
-        //         "autoRegister": true
-        //     }
-        // }
+        "enabled": true,
+        "providers": {
+            "cas": {
+                "enabled": true,
+                "successRedirect": "/index.html",
+                "failureRedirect": "/error.html",
+                "ssoBaseURL": "http://www.example.com/",
+                "serverBaseURL": "http://localhost:3000",
+                "callbackURL": "/auth/cas/callback",
+                "passTicket": true,
+                "passToken": true,
+                "autoRegister": true
+            },
+            "google": {
+                "enabled": true,
+                "successRedirect": "/index.html",
+                "failureRedirect": "/error.html",
+                "clientID": "520954640638-n9q6c2ap1d61foa02ne0105es6rini3n.apps.googleusercontent.com",
+                "clientSecret": "Ts_XcQFB-aX6h1Ot51lnAHK6",
+                "callbackURL": "/auth/google/callback",
+                "passTicket": true,
+                "passToken": true,
+                "autoRegister": true
+            },
+            "github": {
+                "enabled": true,
+                "successRedirect": "/index.html",
+                "failureRedirect": "/error.html",
+                "callbackUrl": "/auth/github/callback",
+                "clientID": "7efe9b468c79c0366229",
+                "clientSecret": "616d9e926c9310bf9ff7fc0c9b7bfc0c31d6e232",
+                "passTicket": false,
+                "passToken": true,
+                "autoRegister": true
+            },
+            "facebook": {
+                "enabled": true,
+                "successRedirect": "/index.html",
+                "failureRedirect": "/error.html",
+                "callbackUrl": "/auth/facebook/callback",
+                "appId": "19554140894",
+                "appSecret": "cd273345f845a7e6b5451eb5d81d3d7d",
+                "passTicket": false,
+                "passToken": true,
+                "autoRegister": true
+            }
+        }
     }
 });
 

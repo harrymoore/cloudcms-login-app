@@ -1,7 +1,7 @@
 {
-  "name": "dennison-cms",
+  "name": "test-cms",
   "version": "1.0.0",
-  "description": "Dennison Product Training Site Server",
+  "description": "Test Site Server",
   "main": "website/index.js",
   "moduleType": [
     "amd"

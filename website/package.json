@@ -1,22 +1,21 @@
 {
-  "name": "MoenTrainingApp",
+  "name": "CloudCMSTestApp",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node app"
   },
-  "description": "Moen Training Application",
+  "description": "Test Application",
   "author": "Harry Moore",
   "devDependencies": {
     "bower": "~1.2.5"
   },
   "dependencies": {
-    "cloudcms-server": "0.8.205",
+    "cloudcms-server": "0.8.209",
     "express": "*",
     "async": "*"
   },
   "keywords": [
-    "Cloud CMS",
-    "Moen"
+    "Cloud CMS"
   ]
 }
