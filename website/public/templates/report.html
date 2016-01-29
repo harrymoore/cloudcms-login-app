@@ -1,0 +1,155 @@
+{@layout path="page-template" /}
+
+{<pageTitle}
+    {@queryOne type="dennison:page" as="{reques.tokens.pageName}"}
+    {?page}
+        <title>User Report</title>
+    {/page}
+    {/queryOne}
+{/pageTitle}
+
+{<content}
+    {@loadReportData}
+    <div class="row generic-page">
+        <div class="col-12 report">
+            <h1>Training Completion Report</h1>
+            <table id="user-report" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>User First Name</th>
+                        <th>User Last Name</th>
+                        <th>Email</th>
+                        <th>Region</th>
+                        <th>Progress %</th>
+                        <th>Test Results</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    {#users}
+                        <tr>
+                            <td>
+                                <form class="reset-progress-form" action="" method="post">
+                                    <input type="hidden" id="userId" value="{_doc}">
+                                    <input type="submit" class="btn btn-primary" name="resetButton" value="Reset" >
+                                </form>
+                            </td>
+                            <td>
+                                {firstName}
+                            </td>
+                            <td>
+                                {lastName}
+                            </td>
+                            <td>
+                                {email}
+                            </td>
+                            <td>
+                                {region}
+                            </td>
+                            <td>
+                                {?settings.allProgressPercentage}{settings.allProgressPercentage}{:else}0{/settings.allProgressPercentage}
+                            </td>
+                            <td>
+                    			{@iter obj=settings.products}
+                                    {?$value.completedQuiz}
+                                        {productNames[$key]} score: <span class="score">{?$value.completedQuizScore}{$value.completedQuizScore}{:else}0%{/$value.completedQuizScore}</span><br/>
+                                    {:else}
+                                        {productNames[$key]} <span class="score">Not Completed</span><br/>
+                                    {/$value.completedQuiz}
+                                {/iter}
+                            </td>
+                        </tr>
+                    {/users}
+            </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 report">
+            <h1>Question Report</h1>
+            <table id="question-report" class="table table-bordered table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>User</th>
+                        <th>Email</th>
+                        <th>Question</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    {#users}
+                    {?settings.questions}
+                    {#settings.questions}
+                        <tr>
+                            <td>
+                                <form class="delete-question-form" action="" method="post">
+                                    <input type="hidden" id="userId" value="{_doc}">
+                                    <input type="hidden" id="questionIndex" value="{$idx}">
+                                    <input type="submit" class="btn btn-primary" name="deleteButton" value="Delete" >
+                                </form>
+                            </td>
+                            <td>
+                                {firstName}&nbsp;{lastName}
+                            </td>
+                            <td>
+                                {email}
+                            </td>
+                            <td>
+                                {questionText}
+                            </td>
+                        </tr>
+                    {/settings.questions}
+                    {/settings.questions}
+                    {/users}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{/loadReportData}
+{/content}
+
+<script>
+    $(document).ready(function() {
+        $('#user-report').DataTable({
+            "paging": true,
+            "pageLength": 50,
+            "order": [[ 1, "asc" ]]
+        });
+
+        $('#question-report').DataTable({
+            "paging": true,
+            "pageLength": 10
+        });
+
+        $('.reset-progress-form').submit(function(thisForm){
+            var form = this;
+            thisForm.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: '/training/progress/reset',
+                data: {
+                    'userId': $("input[id='userId']", form).val()
+                },
+                success: function() {
+                    location.reload(true);
+                }
+            });
+        });
+
+        $('.delete-question-form').submit(function(thisForm){
+            var form = this;
+            thisForm.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: '/training/question/delete',
+                data: {
+                    'userId': $("input[id='userId']", form).val(),
+                    'questionIndex': $("input[id='questionIndex']", form).val()
+                },
+                success: function() {
+                    location.reload(true);
+                }
+            });
+        });
+    });
+</script>

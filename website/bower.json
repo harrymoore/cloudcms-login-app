@@ -1,0 +1,31 @@
+{
+  "name": "dennison-cms",
+  "version": "1.0.0",
+  "description": "Dennison Product Training Site Server",
+  "main": "website/index.js",
+  "moduleType": [
+    "amd"
+  ],
+  "private": true,
+  "homepage": "http://",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~1.11.3",
+    "requirejs": "~2.1.18",
+    "requirejs-plugins": "~1.0.3",
+    "keydrown": "~1.2.0"
+  },
+  "exportsOverride": {
+    "bootstrap": {
+      "js": "**/dist/js/*.js",
+      "css": "**/dist/css/*.*",
+      "fonts": "**/dist/fonts/*.*"
+    }
+  }
+}

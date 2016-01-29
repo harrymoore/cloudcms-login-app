@@ -1,0 +1,25 @@
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="row footer-bottom">
+            <!-- <div class="col-md-4 col-xs-12 col-sm-12 col-lg-4 ">
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{settings.products[product.id].progressPercentage}" aria-valuemin="0" aria-valuemax="100" style="width: {settings.products[product.id].progressPercentage}%;">
+                        <span class="sales-training-completion">Training Completion {settings.products[product.id].progressPercentage}%</span>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-sm-offset-4 col-xs-3 hidden-xs navigation-buttons-holder-previous">
+                <a class="btn btn-previous btn-lg navigation-button navigation-button-previous" href="/training/modules/{module.id}/products/{product.id}/nav/previous?sectionId={request.tokens.sectionId}"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Previous (Left Arrow)</a>
+            </div>
+            <div class="col-sm-offset-4 col-xs-3 hidden-sm hidden-md hidden-lg navigation-buttons-holder-previous">
+                <a class="btn btn-previous btn-lg navigation-button navigation-button-previous" href="/training/modules/{module.id}/products/{product.id}/nav/previous?sectionId={request.tokens.sectionId}"><i class="glyphicon glyphicon-menu-left"></i>&nbsp;Previous</a>
+            </div>
+            <div class="col-xs-offset-3 col-sm-offset-2 hidden-xs col-md-offset-1 col-xs-3 col-md-offset-2 navigation-buttons-holder-next">
+                <a class="btn btn-next btn-lg navigation-button navigation-button-next" href="/training/modules/{module.id}/products/{product.id}/nav/next?sectionId={request.tokens.sectionId}">(Spacebar) Next&nbsp;<i class="glyphicon glyphicon-menu-right"></i></a>
+            </div>
+            <div class="col-xs-offset-3 col-sm-offset-2 hidden-sm hidden-md hidden-lg col-md-offset-1 col-xs-3 col-md-offset-2 navigation-buttons-holder-next">
+                <a class="btn btn-next btn-lg navigation-button navigation-button-next" href="/training/modules/{module.id}/products/{product.id}/nav/next?sectionId={request.tokens.sectionId}">Next&nbsp;<i class="glyphicon glyphicon-menu-right"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>

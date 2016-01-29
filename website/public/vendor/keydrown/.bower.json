@@ -1,0 +1,15 @@
+{
+  "name": "keydrown",
+  "version": "1.2.0",
+  "main": "./dist/keydrown.min.js",
+  "homepage": "https://github.com/jeremyckahn/keydrown",
+  "_release": "1.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.2.0",
+    "commit": "4d1ce3fd1775d4dc0466139a5dec0430d374bb78"
+  },
+  "_source": "git://github.com/jeremyckahn/keydrown.git",
+  "_target": "~1.2.0",
+  "_originalSource": "keydrown"
+}

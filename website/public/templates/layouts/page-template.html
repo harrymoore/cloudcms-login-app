@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html lang="en">
+<!--<![endif]-->
+    <head>
+        {+head}
+            {@block path="head-default"/}
+        {/head}
+        {+pageTitle}
+            <title>{title}</title>
+        {/pageTitle}
+    </head>
+
+    <body>
+        <div id="globalWrapper" class="container-fluid">
+            <header>
+                {+nav}
+                    {@block path="nav-default"/}
+                {/nav}
+            </header>
+
+            <div class="content-holder">
+            {+content}
+            <!-- PAGE CONTENT -->
+            {/content}
+            </div>
+
+            {+footer}
+            <!-- FOOTER CONTENT -->
+            {/footer}
+        </div>
+        {+end}{@block path="end-default"/}{/end}
+        {+track}{/track}
+
+    </body>
+</html>

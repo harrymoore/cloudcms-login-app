@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="leftnav">
+
+        <a href="/training.html"><h3 class="module-menu">TRAINING MAIN MENU</h3></a>
+
+        {! if training home page, show this... !}
+        {^module}
+            <p>To begin, select a category from the right.</p>
+        {:else}
+            {! show bread crumb !}
+            {#breadcrumb}
+                <h4 class="module-name">
+                    <a href="/training/modules/{id}.html">{title}</a>
+                </h4>
+            {/breadcrumb}
+        {/module}
+
+        {?product}
+        <h4 class="product-name">{product.title}</h4>
+        <ul class="nav nav-pills nav-stacked">
+
+            {#product.sections}
+                {?enabled}
+                    <li class="nav {@eq key=id value=request.tokens.sectionId}active{/eq}">
+                        <a href="/training/modules/{module.id}/products/{product.id}/{id}.html">
+                            {?settings.products[product.id].sections[id].visited}
+                            <i class="product-section-visited glyphicon glyphicon-ok"></i>&nbsp;
+                            {:else}
+                            <i class="product-section-visited glyphicon glyphicon-none"></i>&nbsp;
+                            {/settings.products[product.id].sections[id].visited}
+                            <span>{title|s}</span>
+                        </a>
+                    </li>
+                {/enabled}
+            {/product.sections}
+        </ul>
+        {/product}
+
+    </div>
+
+</div>

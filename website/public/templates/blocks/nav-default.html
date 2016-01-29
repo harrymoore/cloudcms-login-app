@@ -1,0 +1,49 @@
+{@queryOne type="dennison:navigation" as="content"}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid bluebar">
+        <div class="row">
+            <div class="col-md-3 company-title">
+                Moen Sales Training
+            </div>
+            <div class="col-md-9 product-info">
+                {?breadcrumb}
+                    {#breadcrumb}
+                        <a href="/training/modules/{id}.html">{title}</a>{@sep} &raquo; {/sep}
+                    {/breadcrumb}
+                {/breadcrumb}
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="navbar-header col-md-3 training-top">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#t">
+            {#content.links}
+                <span class="icon-bar"></span>
+            {/content.links}
+            </button>
+            <a class="navbar-brand" href="/index.html">
+                <img class="nav" alt="Home" src="{content.attachments.logo.url}">
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="t">
+            <ul class="nav navbar-nav">
+            {#content.links}
+                <li class="divider-vertical"></li>
+        		{?isAttachmentLink}
+        			{@iter obj=content.attachments}
+        			{@if cond="\"{$key}\" == \"{attachmentId}\""}
+                        <li><a {?linkTarget}target="{linkTarget}"{/linkTarget} href="{$value.url}/{$value.filename}">{linkTitle}</a></li>
+        			{/if}
+        			{/iter}
+        		{:else}
+            		<li><a {?linkTarget}target="{linkTarget}"{/linkTarget} href="{linkURL}">{linkTitle}</a></li>
+        		{/isAttachmentLink}
+                {@last}
+                <li class="divider-vertical"></li>
+                {/last}
+            {/content.links}
+            </ul>
+        </div>
+    </div>
+</nav>
+{/queryOne}

@@ -1,0 +1,40 @@
+{@layout path="page-template" /}
+
+{<pageTitle}
+    <title>{product.title}</title>
+{/pageTitle}
+
+{<content}
+    <div class="row">
+        <div class="col-md-9 col-md-push-3">
+            {?request.tokens.resultIndex}
+            <div class="product-page-content">
+                {@block path="quiz-results/quiz-results"/}
+            </div>
+            {:else}
+                {! walk the product section array until we find a match on section "id" and then render !}
+                {?product.sections}
+                {#product.sections}
+                    {@eq key=id value=request.tokens.sectionId}
+                        <div class="product-page-content">
+                        {@block path="product/{pageType}"/}
+                        </div>
+                    {/eq}
+                {/product.sections}
+                {/product.sections}
+                {! end of product section !}
+            {/request.tokens.resultIndex}
+        </div>
+        <div class="col-md-3 col-md-pull-9">
+            {@block path="leftnav-progress"/}
+        </div>
+    </div>
+{/content}
+
+{<track}
+    {@block path="track"/}
+{/track}
+
+{<footer}
+    {@block path="footer-default"/}
+{/footer}

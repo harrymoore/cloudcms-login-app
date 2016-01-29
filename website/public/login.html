@@ -1,0 +1,69 @@
+    <div class="row">
+        <div class="col-xs-2">
+            <a href="/auth/google">Login with Google</a>
+        </div>
+        <div class="col-xs-2">
+            <a href="/auth/github">Login with Github</a>
+        </div>
+        <div class="col-xs-2">
+            <a href="/auth/facebook">Login with Facebook</a>
+        </div>
+        <div class="col-xs-2">
+            <a href="/auth/cas">Login with CAS</a>
+        </div>
+    </div>
+
+    <p>
+    <form id="login-form" name="login" method="post" action="/login?successUrl=/index.html&failureUrl=/login.html">
+        <label for="registration">Register New User</label><br />
+
+        <label for="username">User Login</label><br />
+        <input type="text" id="username" name="username" ></input><br />
+
+        <label for="password">User password</label><br />
+        <input type="password" id="password" name="password" ></input><br />
+
+        <input type="submit" name="submit" value="Login">
+    </form>
+
+    <p>
+    <form id="registration-form" name="registration" method="post" action="/register?redirect=true&successUrl=/index.html&failureUrl=/login.html">
+        <label for="registration">Register New User</label><br />
+
+        <label for="username">User Login</label><br />
+        <input type="text" id="username" name="username" ></input><br />
+
+        <label for="email">User email</label><br />
+        <input type="text" id="email" name="email" ></input><br />
+
+        <label for="password">User password</label><br />
+        <input type="password" id="password" name="password" ></input><br />
+
+        <label for="passwordVerify">User password again</label><br />
+        <input type="password" id="passwordVerify" name="passwordVerify" ></input><br />
+
+        <input type="submit" name="submit" value="Create User">
+    </form>
+<!-- <script src="/vendor/jquery/dist/jquery.min.js"></script> -->
+<!-- <script>
+    $(document).ready(function() {
+        $('#registration-form').submit(function(thisForm){
+            $.ajax({
+                type: "POST",
+                url: '/register',
+                data: {
+                    'username': $("input[id='username']", thisForm).val(),
+                    'email': $("input[id='email']", thisForm).val(),
+                    'password': $("input[id='password']", thisForm).val(),
+                    'passwordVerify': $("input[id='passwordVerify']", thisForm).val()
+                },
+                fail: function(err) {
+                    alert("User creation failed " + err);
+                },
+                success: function() {
+                    alert("User created");
+                }
+            });
+        });
+    });
+</script> -->
